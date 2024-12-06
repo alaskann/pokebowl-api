@@ -5,9 +5,16 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
-    provider: "sqlite", // or "mysql", "postgresql", ...etc
+    provider: "sqlite",
   }),
   emailAndPassword: {
     enabled: true,
+  },
+  trustedOrigins: ["http://localhost:3001"],
+  session: {
+    cookieCache: {
+      enabled: true,
+      maxAge: 5 * 60,
+    },
   },
 });
