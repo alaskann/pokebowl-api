@@ -1,0 +1,15 @@
+-- SELECT
+--   name,
+--   CAST(COALESCE(wins_count, 0) AS TEXT) AS wins,
+--   CAST(COALESCE(losses_count, 0) AS TEXT) AS losses
+-- FROM (
+--   SELECT winner AS name, COUNT(*) AS wins_count, 0 AS losses_count
+--   FROM battles
+--   GROUP BY winner
+--   UNION ALL
+--   SELECT loser AS name, 0 AS wins_count, COUNT(*) AS losses_count
+--   FROM battles
+--   GROUP BY loser
+-- ) AS stats
+-- GROUP BY name
+-- ORDER BY name;

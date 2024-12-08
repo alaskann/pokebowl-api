@@ -3,6 +3,7 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
+
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "sqlite",
@@ -16,5 +17,8 @@ export const auth = betterAuth({
       enabled: true,
       maxAge: 5 * 60,
     },
+  },
+  advanced: {
+    cookiePrefix: "pokebowl-auth",
   },
 });

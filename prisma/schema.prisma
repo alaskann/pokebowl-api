@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["typedSql"]
 }
 
 datasource db {
@@ -81,6 +82,6 @@ model Battle {
 
   user User @relation(fields: [judge], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
-  @@unique([judge, winner, loser])
+  @@unique([judge, winner, loser]) 
   @@map("battles")
 }
