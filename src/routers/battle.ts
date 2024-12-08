@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { validator } from "hono/validator";
 import { Battle } from "../lib/types";
 import prisma from "../db";
 import { auth } from "../lib/auth";
