@@ -14,8 +14,6 @@ export const app = new Hono<{
 }>();
 
 app.get("/", async (c) => {
-  console.log("get win loss ratios called");
-
   const user = c.get("user");
   if (!user)
     throw new HTTPException(401, { message: "Unauthorized, no valid session" });
@@ -31,9 +29,6 @@ app.get("/", async (c) => {
         ? Number(result.wins)
         : result.winLossRatio,
   }));
-
-  console.log("result", result);
-  // console.log("formattedResult", formattedResult);
 
   return c.json(serializableResult);
 });

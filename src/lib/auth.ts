@@ -13,12 +13,14 @@ export const auth = betterAuth({
   },
   trustedOrigins: ["http://localhost:3001"],
   session: {
-    cookieCache: {
-      enabled: true,
-      maxAge: 5 * 60,
-    },
+    freshAge: 0,
   },
   advanced: {
     cookiePrefix: "pokebowl-auth",
+  },
+  user: {
+    deleteUser: {
+      enabled: true,
+    },
   },
 });
